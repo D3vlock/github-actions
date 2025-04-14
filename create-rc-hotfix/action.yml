@@ -13,5 +13,5 @@ runs:
         fetch_all_tags: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         dry_run: true
-    - run: $GITHUB_ACTION_PATH/create-rc-hotfix.sh ${{ needs.tag_version.outputs.previous_version }}
+    - run: $GITHUB_ACTION_PATH/create-rc-hotfix.sh ${{ steps.tag_version.outputs.previous_tag }}
       shell: bash
