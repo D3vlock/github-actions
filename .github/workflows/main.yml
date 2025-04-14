@@ -1,0 +1,20 @@
+on:
+  pull_request:
+    branches:
+      - ^.*-hotfix-RC\d+$
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - closed
+      - labeled
+      - unlabeled
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: D3vlock/github-actions/create-rc-hotfix@v1
+        with:
+          release: '1.2.3'
