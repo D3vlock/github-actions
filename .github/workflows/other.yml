@@ -10,5 +10,6 @@ jobs:
         uses: D3vlock/github-actions/create-rc-hotfix@v1
         with:
           release: '1.2.3'
+          github_token: ${{ secrets.TOKEN }}
       - run: echo "bbbb"
         shell: bash
