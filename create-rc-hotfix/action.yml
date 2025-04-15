@@ -16,5 +16,12 @@ runs:
         fetch_all_tags: true
         github_token: ${{ inputs.github_token }}
         dry_run: true
+    - uses: jimschubert/query-tag-action@v1
+      id: tag-action
+      with:
+        include: '*-RC*'
+    - uses: peter-evans/create-pull-request@v7
+      with:
+        title: 'Hotfix for ${{ steps.tag-action.outputs.tag }}'
     - run: $GITHUB_ACTION_PATH/create-rc-hotfix.sh ${{ steps.tag_version.outputs.previous_tag }}
       shell: bash
