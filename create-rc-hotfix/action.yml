@@ -2,7 +2,7 @@ name: 'Create RC hotfix'
 description: 'Start from latest RC and create a hotfix branch.'
 inputs:
   release:
-    description: 'Which release?'
+    description: 'Which release'
     required: true
   github_token: 
     description: 'Github token'
